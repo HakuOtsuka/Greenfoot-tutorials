@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    Counter counter=new Counter();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -18,22 +19,36 @@ public class MyWorld extends World
         super(600, 600, 1); 
         prepare();
     }
+    public Counter getCounter(){
+        return counter;
+    }
     public void act(){
-        if(Greenfoot.getRandomNumber(60)<1){
             addEnemy1();
-        }
+            addEnemy2();
     }
     public void addEnemy1(){
-        addObject(new Enemy1(),Greenfoot.getRandomNumber(600),0);
+        if(Greenfoot.getRandomNumber(120)<1){
+            addObject(new Enemy1(),Greenfoot.getRandomNumber(600),0);
+        }
+        
     }
+    public void addEnemy2(){
+        if(Greenfoot.getRandomNumber(200)<1){
+            addObject(new Enemy2(),Greenfoot.getRandomNumber(600),0);
+        }
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
+        addObject(counter,50,50);
         Player player = new Player();
         addObject(player,94,540);
-        
+        Counter counter = new Counter();
+        addObject(counter,56,238);
+        counter.setLocation(121,246);
     }
 }
