@@ -22,16 +22,21 @@ public class Enemy2 extends Enemy
         Actor projectile = getOneIntersectingObject(Projectile.class);
         if (projectile!= null){
             getWorld().removeObject(projectile);
+            timesHit--;
+        }
+        if(timesHit==0){
             World world=getWorld();
             MyWorld myWorld=(MyWorld)world;
             Counter counter = myWorld.getCounter();
             counter.addScore();
-            timesHit--;
-        }
-        if(timesHit==0){
             getWorld().removeObject(this);
         }
         else if(getY()==599){
+            World world=getWorld();
+            MyWorld myWorld=(MyWorld)world;
+            Healthbar healthbar=myWorld.getHealthbar();
+            healthbar.loseHealth();
+            healthbar.loseHealth();
             getWorld().removeObject(this);
         }
     }

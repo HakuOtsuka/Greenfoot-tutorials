@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Counter counter=new Counter();
+    Healthbar healthbar=new Healthbar();
+    boolean bossLevel=false;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -22,9 +24,20 @@ public class MyWorld extends World
     public Counter getCounter(){
         return counter;
     }
+    public Healthbar getHealthbar(){
+        return healthbar;
+    }
     public void act(){
             addEnemy1();
             addEnemy2();
+            Boss();
+    }
+    public void Boss(){
+        if(counter.score==25||counter.score==26){
+            if(bossLevel==false){
+                addObject(new Boss(),300,0);
+            }
+        }
     }
     public void addEnemy1(){
         if(Greenfoot.getRandomNumber(120)<1){
@@ -45,10 +58,8 @@ public class MyWorld extends World
     private void prepare()
     {
         addObject(counter,50,50);
+        addObject(healthbar,250,50);
         Player player = new Player();
         addObject(player,94,540);
-        Counter counter = new Counter();
-        addObject(counter,56,238);
-        counter.setLocation(121,246);
     }
 }

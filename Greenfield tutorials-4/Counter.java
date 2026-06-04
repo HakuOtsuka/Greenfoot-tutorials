@@ -19,8 +19,15 @@ public class Counter extends Actor
     public void act()
     {
         setImage(new GreenfootImage("Score: " + score,40,Color.GREEN,Color.BLACK));
+        youWin();
     }
     public void addScore(){
         score++;
+    }
+    public void youWin(){
+        if (score>=5){
+            getWorld().addObject(new YouWin(),300,300);
+            Greenfoot.stop();
+        }
     }
 }
