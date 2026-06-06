@@ -1,18 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Ground here.
+ * Write a description of class GroundMiddle here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Ground extends Actor
+public class GroundMiddle extends Actor
 {
     /**
-     * Act - do whatever the Ground wants to do. This method is called whenever
+     * Act - do whatever the GroundMiddle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Ground(){
+    public GroundMiddle(){
         getImage().scale(getImage().getWidth() * 6,getImage().getHeight()*2);
     }
     public void act()
@@ -24,7 +24,7 @@ public class Ground extends Actor
             move(4);
         }
         if(getX()==0){
-            setLocation(getWorld().getWidth()-1,Greenfoot.getRandomNumber(100)+612);
+            setLocation(getWorld().getWidth()-1,Greenfoot.getRandomNumber(100)+480);
         }
     }
 }
